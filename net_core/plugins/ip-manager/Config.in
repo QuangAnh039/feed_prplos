@@ -1,0 +1,32 @@
+config PACKAGE_ip-manager
+    tristate
+    select SAH_AMX_TR181_IP
+
+if PACKAGE_ip-manager
+
+menu "Select ip-manager build options"
+    depends on PACKAGE_ip-manager
+
+config SAH_AMX_TR181_IP
+    bool "TR-181 Device.IP datamodel implementation"
+    default y
+
+config SAH_AMX_TR181_IP_RUN_AS_USER
+    string "User will be used for the IP-MANAGER plugin"
+    default "tr181_app"
+
+config SAH_AMX_TR181_IP_RUN_AS_GROUP
+    string "Group will be used for the IP-MANAGER plugin"
+    default "tr181_app"
+
+config PRPL_CPE_OPMODE_EXTENDER
+    bool ""
+    default n
+
+config PRPL_CPE_OPMODE_GATEWAY
+    bool ""
+    default y
+
+endmenu
+
+endif
